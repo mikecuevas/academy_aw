@@ -1,0 +1,21 @@
+# https://docs.getdbt.com/docs/build/sources
+
+version: 2
+
+sources:
+  - name: adventurework_erp
+    database: FEA24_9
+    schema: RAW_ADVENTURE_WORKS
+    tables:
+      - name: Address
+      - name: SalesOrderHeader
+      - name: SalesOrderDetail
+      - name: Product
+      - name: Customer
+      - name: SalesReason
+      - name: SalesTerritoryHistory
+      - name: SalesPerson
+      - name: ProductCategory 
+      - name: ProductModel
+      - name: Person
+      - name: CreditCard
