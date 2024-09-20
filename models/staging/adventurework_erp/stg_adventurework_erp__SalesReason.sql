@@ -6,16 +6,16 @@ source as (
 
 ),
 
-renamed as (
+salesreason as (
 
     select
-        salesreasonid,
-        name,
-        reasontype,
-        modifieddate
+        cast(salesreasonid as int) as pk_salesreasonid
+        ,cast(name as varchar) as salesreason_name
+        ,cast(reasontype as varchar) as reasontype
+        ,cast(modifieddate as date) as modifieddate
 
     from source
 
 )
 
-select * from renamed
+select * from salesreason
