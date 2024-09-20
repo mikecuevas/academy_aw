@@ -6,18 +6,18 @@ source as (
 
 ),
 
-renamed as (
+productmodel as (
 
     select
-        productmodelid,
-        name,
-        catalogdescription,
-        instructions,
-        rowguid,
-        modifieddate
+        cast(productmodelid as int) as pk_productmodelid
+        ,cast(name as varchar) as productmodel_name
+        ,cast(catalogdescription as varchar) as catalogdescription
+        ,cast(instructions as varchar) as instructions
+        ,cast(rowguid as varchar) as rowguid
+        ,cast(modifieddate as date) as modifieddate
 
     from source
 
 )
 
-select * from renamed
+select * from productmodel

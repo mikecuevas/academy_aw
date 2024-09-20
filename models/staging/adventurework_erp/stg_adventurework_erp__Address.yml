@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: stg_adventurework_erp__Address
+    description: "Staging model for the Address table."
+    columns:
+      - name: pk_addressid
+        description: "Primary key of the address."
+        tests:
+          - not_null
+          - unique
+      - name: fk_stateprovinceid
+        description: "Foreign key referencing the state/province."
+        tests:
+          - not_null
+      - name: addressline1
+        description: "First line of the address."
+      - name: city
+        description: "City for the address."
+      - name: postalcode
+        description: "Postal code of the address."
+      - name: spatiallocation
+        description: "Geographical location of the address."
+      - name: rowguid
+        description: "Unique identifier for the address."
+        tests:
+          - not_null
+          - unique
+      - name: modifieddate
+        description: "Date when the address was last modified."
+        tests:
+          - not_null

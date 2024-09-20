@@ -6,18 +6,18 @@ source as (
 
 ),
 
-renamed as (
+salesterritoryhistory as (
 
     select
-        businessentityid,
-        territoryid,
-        startdate,
-        enddate,
-        rowguid,
-        modifieddate
+        cast(businessentityid as int) as pk_businessentityid
+        ,cast(territoryid as int) as fk_territoryid
+        ,cast(startdate as date) as startdate
+        ,cast(enddate as date) as enddate
+        ,cast(rowguid as varchar) as rowguid
+        ,cast(modifieddate as date) as modifieddate
 
     from source
 
 )
 
-select * from renamed
+select * from salesterritoryhistory
