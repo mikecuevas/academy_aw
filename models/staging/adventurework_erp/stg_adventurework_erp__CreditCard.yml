@@ -7,7 +7,7 @@ models:
       - name: pk_creditcardid
         description: "Primary key for CreditCard records."
         tests:
-          - null
+          - not_null
           - unique
       - name: cardtype
         description: "Credit card name."
