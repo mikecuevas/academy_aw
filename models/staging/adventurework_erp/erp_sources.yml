@@ -19,3 +19,6 @@ sources:
       - name: ProductModel
       - name: Person
       - name: CreditCard
+      - name: STATEPROVINCE
+      - name: Currency
+      - name: ShipMethod
