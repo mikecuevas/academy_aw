@@ -1,0 +1,5 @@
+{
+    "dbt.perspectiveTheme": "Vintage",
+    "dbt.enableNewLineagePanel": false,
+    "dbt.lineage.defaultExpansion": 5
+}

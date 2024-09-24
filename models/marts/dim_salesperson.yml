@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: dim_salesperson
+    description: "Dimensão de vendedores com informações pessoais e profissionais."
+    columns:
+      - name: salesperson_id
+        description: "Identificador único do vendedor."
+        tests:
+          - unique
+          - not_null
+      - name: firstname
+        description: "Primeiro nome do vendedor."
+        tests:
+          - not_null
+      - name: lastname
+        description: "Sobrenome do vendedor."
+        tests:
+          - not_null
+      - name: hiredate
+        description: "Data de contratação do vendedor."
+      - name: salesquota
+        description: "Cota de vendas do vendedor."
+      - name: salesytd
+        description: "Vendas do ano até a data."
+      - name: saleslastyear
+        description: "Vendas do ano anterior."

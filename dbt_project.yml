@@ -39,3 +39,5 @@ models:
   adventure_works:
     staging:
       +materialized: table
+    marts:
+      +materialized: table

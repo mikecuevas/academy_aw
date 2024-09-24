@@ -9,9 +9,9 @@ source as (
 currency as (
 
     select
-        currencycode,
-        name,
-        modifieddate
+        cast(currencycode as varchar) as pk_currencycode
+        ,cast(name as varchar) as currency_name
+        ,cast(modifieddate as date) as modifieddate
 
     from source
 

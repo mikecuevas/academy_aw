@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: dim_customer
+    description: "Dimensão de clientes com informações pessoais."
+    columns:
+      - name: customer_id
+        description: "Identificador único do cliente."
+        tests:
+          - unique
+          - not_null
+      - name: person_id
+        description: "Identificador do registro na tabela Person."
+      - name: firstname
+        description: "Primeiro nome do cliente."
+      - name: lastname
+        description: "Sobrenome do cliente."
+      - name: emailpromotion
+        description: "Indica se o cliente optou por receber promoções por e-mail."
