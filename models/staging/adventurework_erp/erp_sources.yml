@@ -15,10 +15,15 @@ sources:
       - name: SalesReason
       - name: SalesTerritoryHistory
       - name: SalesPerson
-      - name: ProductCategory 
+      - name: ProductCategory
+      - name: PRODUCTSUBCATEGORY 
       - name: ProductModel
       - name: Person
       - name: CreditCard
       - name: STATEPROVINCE
       - name: Currency
       - name: ShipMethod
+      - name: CountryRegion
+      - name: Employee
+      - name: BusinessEntityAddress
+      - name: SalesOrderHeaderSalesReason

@@ -9,12 +9,12 @@ source as (
 shipmethod as (
 
     select
-        shipmethodid,
-        name,
-        shipbase,
-        shiprate,
-        rowguid,
-        modifieddate
+        cast(shipmethodid as int) as shipmethodid,
+        cast(name as varchar) as name,
+        cast(shipbase as decimal(15,2)) as shipbase,
+        cast(shiprate as decimal(15,2)) as shiprate,
+        cast(rowguid as varchar) as rowguid,
+        cast(modifieddate as date) as modifieddate
 
     from source
 
