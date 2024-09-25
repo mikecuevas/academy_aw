@@ -1,5 +1,3 @@
--- models/marts/dimensions/dim_salesreason.sql
-
 with
     salesreason as (
         select

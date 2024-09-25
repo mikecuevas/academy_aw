@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: stg_adventurework_erp__SalesOrderHeader
+    description: "Modelo de staging para a tabela SalesOrderHeader."
+
+    columns:
+      - name: pk_salesorderid
+        description: "Chave primária do pedido de venda."
+        tests:
+          - unique
+          - not_null
+
+      - name: fk_customerid
+        description: "Chave estrangeira para Customer."
+        tests:
+          - not_null
+
+      - name: fk_salespersonid
+        description: "Chave estrangeira para SalesPerson."
+
+      - name: fk_shiptoaddressid
+        description: "Chave estrangeira para Address."
+        tests:
+          - not_null
+
+      - name: fk_shipmethodid
+        description: "Chave estrangeira para ShipMethod."
+        tests:
+          - not_null

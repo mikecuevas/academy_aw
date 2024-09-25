@@ -1,10 +1,8 @@
--- models/marts/dimensions/dim_date.sql
-
 with
     date_range as (
         select
-            dateadd(day, seq4(), '2005-01-01') as date
-        from table(generator(rowcount => 3652)) -- 10 anos de datas
+            dateadd(day, seq4(), '2011-01-01') as date
+        from table(generator(rowcount => 3652))
     ),
 
     date_attributes as (

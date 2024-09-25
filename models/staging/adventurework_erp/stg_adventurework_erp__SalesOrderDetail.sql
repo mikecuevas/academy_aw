@@ -10,7 +10,7 @@ salesorderdetail as (
 
     select
         cast(salesorderid as int) as pk_salesorderid
-        ,cast(salesorderdetailid as int) as pk_salesorderdetailid
+        ,cast(salesorderdetailid as int) as fk_salesorderdetailid
         ,cast(specialofferid as int) as fk_specialofferid
         ,cast(productid as int) as fk_productid
         ,cast(carriertrackingnumber as varchar) as carriertrackingnumber

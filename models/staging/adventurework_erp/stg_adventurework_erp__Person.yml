@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_adventurework_erp__Person
+    description: "Modelo de staging para a tabela Person."
+
+    columns:
+      - name: pk_businessentityid
+        description: "Chave primária da pessoa."
+        tests:
+          - unique
+          - not_null
+
+      - name: firstname
+        description: "Primeiro nome da pessoa."
+
+      - name: lastname
+        description: "Sobrenome da pessoa."

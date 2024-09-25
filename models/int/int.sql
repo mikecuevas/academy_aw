@@ -1,5 +1,3 @@
--- models/intermediate/int_sales_items.sql
-
 with
     sales_order_header as (
         select * from {{ ref('stg_adventurework_erp__SalesOrderHeader') }}
@@ -15,9 +13,9 @@ with
 
     joined as (
         select
-            -- Chaves
+            
             soh.pk_salesorderid as sales_order_id,
-            sod.pk_salesorderdetailid as sales_order_detail_id,
+            sod.fk_salesorderdetailid as sales_order_detail_id,
             soh.fk_customerid as customer_id,
             soh.fk_salespersonid as salesperson_id,
             soh.fk_billtoaddressid as bill_to_address_id,
@@ -26,12 +24,10 @@ with
             sod.fk_productid as product_id,
             sor.fk_salesreasonid as sales_reason_id,
 
-            -- Datas
             soh.orderdate,
             soh.duedate,
             soh.shipdate,
 
-            -- Outros campos
             sod.orderqty,
             sod.unitprice,
             sod.unitpricediscount,
@@ -47,10 +43,7 @@ with
 
     created_surrogate_key as (
         select
-            -- Criando a surrogate key concatenando as chaves naturais
             md5(cast(sales_order_id as varchar) || '-' || cast(sales_order_detail_id as varchar) || '-' || coalesce(cast(sales_reason_id as varchar), '')) as sk_sales,
-
-            -- Incluindo todas as colunas
             *
         from joined
     )

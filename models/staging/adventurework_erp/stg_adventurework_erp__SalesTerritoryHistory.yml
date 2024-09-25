@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: stg_adventurework_erp__SalesTerritoryHistory
+    description: "Modelo de staging para a tabela SalesTerritoryHistory."
+
+    columns:
+      - name: pk_businessentityid
+        description: "Chave primária da entidade de negócio."
+
+      - name: fk_territoryid
+        description: "Chave estrangeira para Territory."

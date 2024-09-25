@@ -1,5 +1,3 @@
--- models/marts/dimensions/dim_salesperson.sql
-
 with
     salesperson as (
         select

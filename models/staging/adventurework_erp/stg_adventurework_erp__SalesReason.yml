@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: stg_adventurework_erp__SalesReason
+    description: "Modelo de staging para a tabela SalesReason."
+
+    columns:
+      - name: pk_salesreasonid
+        description: "Chave primária do motivo de venda."
+        tests:
+          - unique
+          - not_null
+
+      - name: salesreason_name
+        description: "Nome do motivo de venda."

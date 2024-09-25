@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: stg_adventurework_erp__Customer
+    description: "Modelo de staging para a tabela Customer."
+
+    columns:
+      - name: pk_customerid
+        description: "Chave primária do cliente."
+        tests:
+          - unique
+          - not_null
+
+      - name: fk_personid
+        description: "Chave estrangeira para Person."
+
+      - name: fk_storeid
+        description: "Chave estrangeira para Store."
+
+      - name: fk_territoryid
+        description: "Chave estrangeira para Territory."
+
+      - name: rowguid
+        description: "Identificador global exclusivo da linha."
+
+      - name: modifieddate
+        description: "Data da última modificação do registro."

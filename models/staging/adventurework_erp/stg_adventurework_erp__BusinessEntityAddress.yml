@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: stg_adventurework_erp__BusinessEntityAddress
+    description: "Modelo de staging para a tabela BusinessEntityAddress."
+
+    columns:
+      - name: fk_businessentityid
+        description: "Chave estrangeira para BusinessEntity."
+        tests:
+          - not_null
+
+      - name: fk_addressid
+        description: "Chave estrangeira para Address."
+        tests:
+          - not_null
+
+      - name: fk_addresstypeid
+        description: "Chave estrangeira para AddressType."
+        tests:
+          - not_null
+
+      - name: rowguid
+        description: "Identificador global exclusivo da linha."
+
+      - name: modifieddate
+        description: "Data da última modificação do registro."

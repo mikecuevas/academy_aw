@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_adventurework_erp__SalesOrderDetail
+    description: "Modelo de staging para a tabela SalesOrderDetail."
+
+    columns:
+      - name: pk_salesorderid
+        description: "Chave primária do detalhe do pedido de venda."
+
+      - name: fk_customerid
+        description: "Chave primária do pedido de venda."
+
+      - name: fk_productid
+        description: "Chave estrangeira para Product."
+        tests:
+          - not_null

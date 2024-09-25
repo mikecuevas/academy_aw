@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: stg_adventurework_erp__CreditCard
+    description: "Modelo de staging para a tabela CreditCard."
+
+    columns:
+      - name: pk_creditcardid
+        description: "Chave primária do cartão de crédito."
+        tests:
+          - unique
+          - not_null
+
+      - name: cardtype
+        description: "Tipo do cartão de crédito."
+
+      - name: cardnumber
+        description: "Número do cartão de crédito."
+
+      - name: expmonth
+        description: "Mês de expiração do cartão."
+
+      - name: expyear
+        description: "Ano de expiração do cartão."
+
+      - name: modifieddate
+        description: "Data da última modificação do registro."

@@ -41,3 +41,5 @@ models:
       +materialized: table
     marts:
       +materialized: table
+    int:
+      +materialized: table

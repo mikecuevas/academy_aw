@@ -1,5 +1,3 @@
--- models/marts/dimensions/dim_credit_card.sql
-
 with
     credit_card as (
         select

@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: stg_adventurework_erp__Address
+    description: "Modelo de staging para a tabela Address."
+    columns:
+      - name: pk_addressid
+        description: "Chave primária do endereço."
+        tests:
+          - unique
+          - not_null
+
+      - name: fk_stateprovinceid
+        description: "Chave estrangeira para StateProvince."
+        tests:
+          - not_null
+
+      - name: addressline1
+        description: "Linha principal do endereço."
+
+      - name: city
+        description: "Cidade do endereço."
+
+      - name: postalcode
+        description: "Código postal do endereço."

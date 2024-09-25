@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: stg_adventurework_erp__Product
+    description: "Modelo de staging para a tabela Product."
+
+    columns:
+      - name: pk_productid
+        description: "Chave primária do produto."
+        tests:
+          - unique
+          - not_null
+
+      - name: fk_productsubcategoryid
+        description: "Chave estrangeira para ProductSubcategory."
+
+      - name: fk_productmodelid
+        description: "Chave estrangeira para ProductModel."
+
+      - name: product_name
+        description: "Nome do produto."

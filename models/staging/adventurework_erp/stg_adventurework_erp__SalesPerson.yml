@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: stg_adventurework_erp__SalesPerson
+    description: "Modelo de staging para a tabela SalesPerson."
+
+    columns:
+      - name: pk_businessentityid
+        description: "Chave primária do vendedor."
+        tests:
+          - unique
+          - not_null
+
+      - name: fk_territoryid
+        description: "Chave estrangeira para Territory."

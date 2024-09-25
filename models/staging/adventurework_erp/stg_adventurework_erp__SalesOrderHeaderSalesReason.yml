@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_adventurework_erp__SalesOrderHeaderSalesReason
+    description: "Modelo de staging para a tabela SalesOrderHeaderSalesReason."
+
+    columns:
+      - name: fk_salesorderid
+        description: "Chave estrangeira para SalesOrderHeader."
+        tests:
+          - not_null
+
+      - name: fk_salesreasonid
+        description: "Chave estrangeira para SalesReason."
+        tests:
+          - not_null

@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_adventurework_erp__StateProvince
+    description: "Modelo de staging para a tabela StateProvince."
+
+    columns:
+      - name: pk_stateprovinceid
+        description: "Chave primária do estado/província."
+        tests:
+          - unique
+          - not_null
+
+      - name: fk_territoryid
+        description: "Chave estrangeira para Territory."
+
+      - name: fk_countryregioncode
+        description: "Chave estrangeira para CountryRegion."

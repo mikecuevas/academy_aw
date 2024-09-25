@@ -1,5 +1,3 @@
--- models/marts/dimensions/dim_address.sql
-
 with
     address as (
         select

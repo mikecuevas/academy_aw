@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_adventurework_erp__CountryRegion
+    description: "Modelo de staging para a tabela CountryRegion."
+
+    columns:
+      - name: pk_countryregioncode
+        description: "Chave primária do país ou região."
+        tests:
+          - unique
+          - not_null
+
+      - name: name
+        description: "Nome do país ou região."
+
+      - name: modifieddate
+        description: "Data da última modificação do registro."

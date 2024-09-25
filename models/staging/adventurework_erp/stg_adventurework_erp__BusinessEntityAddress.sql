@@ -1,5 +1,3 @@
--- models/staging/stg_adventurework_erp__BusinessEntityAddress.sql
-
 with
 
 source as (

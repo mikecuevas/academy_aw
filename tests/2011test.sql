@@ -1,5 +1,3 @@
--- Teste para validar o total de vendas brutas em 2011
-
 with total_sales as (
   select
     sum(extended_amount) as total_sales_2011
@@ -9,6 +7,6 @@ with total_sales as (
 
 select
   case
-    when abs(total_sales_2011 - 12646112.16) < 0.01 then 'PASS' else 'FAIL'
+    when abs(total_sales_2011 - 12646112.16) < 0.001 then 'PASS' else 'FAIL'
   end as test_result
 from total_sales

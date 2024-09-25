@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: stg_adventurework_erp__ProductModel
+    description: "Modelo de staging para a tabela ProductModel."
+
+    columns:
+      - name: pk_productmodelid
+        description: "Chave primária do modelo de produto."
+        tests:
+          - unique
+          - not_null
+
+      - name: productmodel_name
+        description: "Nome do modelo de produto."

@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_adventurework_erp__Employee
+    description: "Modelo de staging para a tabela Employee."
+
+    columns:
+      - name: pk_businessentityid
+        description: "Chave primária do funcionário."
+        tests:
+          - unique
+          - not_null
+
+      - name: nationalidnumber
+        description: "Número de identificação nacional do funcionário."
+
+      - name: loginid
+        description: "ID de login do funcionário."
