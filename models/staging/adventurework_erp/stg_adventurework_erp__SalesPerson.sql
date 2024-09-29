@@ -16,8 +16,6 @@ salesperson as (
         ,cast(commissionpct as float) as commissionpct
         ,cast(salesytd as float) as salesytd
         ,cast(saleslastyear as float) as saleslastyear
-        ,cast(rowguid as varchar) as rowguid
-        ,cast(modifieddate as date) as modifieddate
 
     from source
 

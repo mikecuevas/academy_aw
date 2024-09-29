@@ -30,8 +30,6 @@ salesorderheader as (
         ,cast(taxamt as float) as taxamt
         ,cast(freight as float) as freight
         ,cast(totaldue as float) as totaldue
-        ,cast(rowguid as varchar) as rowguid
-        ,cast(modifieddate as date) as modifieddate
 
     from source
 

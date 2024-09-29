@@ -17,8 +17,6 @@ salesorderdetail as (
         ,cast(orderqty as int) as orderqty
         ,cast(unitprice as float) as unitprice
         ,cast(unitpricediscount as float) as unitpricediscount
-        ,cast(rowguid as varchar) as rowguid
-        ,cast(modifieddate as date) as modifieddate
 
     from source
 

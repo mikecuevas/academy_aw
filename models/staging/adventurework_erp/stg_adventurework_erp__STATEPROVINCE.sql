@@ -2,7 +2,7 @@ with
 
 source as (
 
-    select * from {{ source('adventurework_erp', 'STATEPROVINCE') }}
+    select * from {{ source('adventurework_erp', 'StateProvince') }}
 
 ),
 
@@ -15,8 +15,6 @@ stateprovince as (
         ,cast(stateprovincecode as varchar) as stateprovincecode
         ,cast(isonlystateprovinceflag as boolean) as isonlystateprovinceflag
         ,cast(name as varchar) as stateprovince_name
-        ,cast(rowguid as varchar) as rowguid
-        ,cast(modifieddate as timestamp) as modifieddate
 
     from source
 

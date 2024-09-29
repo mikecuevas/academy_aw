@@ -19,9 +19,3 @@ models:
         description: "Chave estrangeira para AddressType."
         tests:
           - not_null
-
-      - name: rowguid
-        description: "Identificador global exclusivo da linha."
-
-      - name: modifieddate
-        description: "Data da última modificação do registro."

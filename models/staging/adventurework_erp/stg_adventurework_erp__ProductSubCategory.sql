@@ -4,18 +4,16 @@ with
 
 source as (
 
-    select * from {{ source('adventurework_erp', 'PRODUCTSUBCATEGORY') }}
+    select * from {{ source('adventurework_erp', 'ProductSubCategory') }}
 
 ),
 
 productsubcategory as (
 
     select
-        cast(productsubcategoryid as int) as pk_productsubcategoryid,
-        cast(productcategoryid as int) as fk_productcategoryid,
-        cast(name as varchar) as productsubcategory_name,
-        cast(rowguid as varchar) as rowguid,
-        cast(modifieddate as date) as modifieddate
+        cast(productsubcategoryid as int) as pk_productsubcategoryid
+        ,cast(productcategoryid as int) as fk_productcategoryid
+        ,cast(name as varchar) as productsubcategory_name
 
     from source
 

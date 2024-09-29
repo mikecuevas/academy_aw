@@ -1,69 +1,55 @@
 with
-    address as (
+    stg_address as (
         select
-            pk_addressid,
-            addressline1,
-            city,
-            fk_stateprovinceid,
-            postalcode,
-            spatiallocation,
-            rowguid,
-            modifieddate
+            pk_addressid
+            ,addressline1
+            ,city
+            ,fk_stateprovinceid
+            ,postalcode
+            ,spatiallocation
 
         from {{ ref("stg_adventurework_erp__Address") }}
     ),
 
-    stateprovince as (
+    stg_stateprovince as (
         select
-            pk_stateprovinceid,
-            stateprovincecode,
-            fk_countryregioncode,
-            isonlystateprovinceflag,
-            stateprovince_name,
-            fk_territoryid,
-            rowguid,
-            modifieddate
-
-        from {{ ref("stg_adventurework_erp__STATEPROVINCE") }}
+            pk_stateprovinceid
+            ,fk_countryregioncode
+            ,fk_territoryid
+            ,stateprovincecode
+            ,isonlystateprovinceflag
+            ,stateprovince_name
+            
+        from {{ ref("stg_adventurework_erp__StateProvince") }}
     ),
 
-    countryregion as (
+    stg_countryregion as (
         select
-            pk_countryregioncode,
-            name as country_name,
-            modifieddate
+            pk_countryregioncode
+            ,name as country_name
+            ,modifieddate
 
         from {{ ref("stg_adventurework_erp__CountryRegion") }}
     ),
 
     joined as (
         select
-            addr.pk_addressid,
-            addr.addressline1,
-            addr.city,
-            addr.postalcode,
-            addr.spatiallocation,
-            stateprov.stateprovincecode,
-            stateprov.stateprovince_name,
-            stateprov.isonlystateprovinceflag,
-            stateprov.fk_countryregioncode,
-            country.country_name
+             {{ dbt_utils.generate_surrogate_key(['pk_addressid']) }} as address_sk -- Geração da surrogate key
+            ,addr.addressline1
+            ,addr.city
+            ,addr.postalcode
+            ,addr.spatiallocation
+            ,stateprov.stateprovincecode
+            ,stateprov.stateprovince_name
+            ,stateprov.isonlystateprovinceflag
+            ,stateprov.fk_countryregioncode
+            ,country.country_name
 
         from address addr
-        left join stateprovince stateprov on addr.fk_stateprovinceid = stateprov.pk_stateprovinceid
-        left join countryregion country on stateprov.fk_countryregioncode = country.pk_countryregioncode
+        left join stateprovince stateprov 
+            on addr.fk_stateprovinceid = stateprov.pk_stateprovinceid
+        left join countryregion country 
+            on stateprov.fk_countryregioncode = country.pk_countryregioncode
     )
 
-select
-    pk_addressid as address_id,
-    addressline1,
-    city,
-    postalcode,
-    spatiallocation,
-    stateprovincecode,
-    stateprovince_name,
-    isonlystateprovinceflag,
-    fk_countryregioncode as countryregion_code,
-    country_name
-
-from joined
+select * from joined

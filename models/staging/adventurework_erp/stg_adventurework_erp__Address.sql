@@ -15,8 +15,6 @@ address as (
         ,cast(city as varchar) as city
         ,cast(postalcode as varchar) as postalcode
         ,cast(spatiallocation as varchar) as spatiallocation
-        ,cast(rowguid as varchar) as rowguid
-        ,cast(modifieddate as date) as modifieddate
 
     from source
 

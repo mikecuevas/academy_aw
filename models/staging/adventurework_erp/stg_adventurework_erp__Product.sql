@@ -32,8 +32,6 @@ product as (
         ,cast(sellstartdate as date) as sellstartdate
         ,cast(sellenddate as date) as sellenddate
         ,cast(discontinueddate as varchar) as discontinueddate
-        ,cast(rowguid as varchar) as rowguid
-        ,cast(modifieddate as date) as modifieddate
 
     from source
 

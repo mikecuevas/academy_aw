@@ -20,8 +20,6 @@ person as (
         ,cast(emailpromotion as int) as emailpromotion
         ,cast(additionalcontactinfo as varchar) as additionalcontactinfo
         ,cast(demographics as varchar) as demographics
-        ,cast(rowguid as varchar) as rowguid
-        ,cast(modifieddate as date) as modifieddate
 
     from source
 
