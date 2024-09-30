@@ -1,25 +1,18 @@
 version: 2
 
 models:
-  - name: dim_credit_card
-    description: "Dimensão de cartões de crédito utilizados nas transações."
+  - name: dim_creditcard
+    description: "Dimensão de cartões de crédito contendo informações de tipo de cartão."
     columns:
-      - name: creditcard_id
-        description: "Identificador único do cartão de crédito."
+      - name: creditcard_sk
+        description: "Surrogate key para o cartão de crédito"
         tests:
+          - not_null
           - unique
+      - name: pk_creditcardid
+        description: "Chave primária original para o cartão de crédito"
+        tests:
           - not_null
+          - unique
       - name: cardtype
-        description: "Tipo de cartão de crédito (e.g., Visa, Mastercard)."
-        tests:
-          - not_null
-      - name: cardnumber_last4
-        description: "Últimos 4 dígitos do número do cartão de crédito."
-      - name: expmonth
-        description: "Mês de expiração do cartão."
-        tests:
-          - not_null
-      - name: expyear
-        description: "Ano de expiração do cartão."
-        tests:
-          - not_null
+        description: "Tipo de cartão de crédito (ex: Visa, MasterCard)"

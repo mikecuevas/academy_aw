@@ -1,23 +1,13 @@
 with
     credit_card as (
         select
-            pk_creditcardid,
-            cardtype,
-            cardnumber,
-            expmonth,
-            expyear,
-            modifieddate
-
-        from {{ ref("stg_adventurework_erp__CreditCard") }}
+            pk_creditcardid
+          , cardtype
+        from {{ ref('stg_adventurework_erp__CreditCard') }}
     )
 
 select
-    pk_creditcardid as creditcard_id,
-    cardtype,
-    right(cardnumber, 4) as cardnumber_last4,
-    expmonth,
-    expyear,
-    modifieddate
-
+    {{ dbt_utils.generate_surrogate_key(['pk_creditcardid']) }} as creditcard_sk
+    , pk_creditcardid
+    , cardtype
 from credit_card
-

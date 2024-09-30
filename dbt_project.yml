@@ -41,5 +41,12 @@ models:
       +materialized: table
     marts:
       +materialized: table
-    int:
+    intermediate:
       +materialized: table
+
+vars:
+  dbt_date:
+    date_spine_start: '2011-01-01'
+    date_spine_end: '2014-12-31'
+    day_of_week_start: 1  # 1 para segunda-feira, 7 para domingo
+    fiscal_month_offset: 0  # Caso o ano fiscal comece em janeiro

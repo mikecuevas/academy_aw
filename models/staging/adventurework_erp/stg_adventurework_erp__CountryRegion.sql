@@ -7,11 +7,8 @@ source as (
 ),
 countryregion as (
     select
-        
-        cast(COUNTRYREGIONCODE as varchar) as PK_COUNTRYREGIONCODE
-        ,cast(NAME as varchar) as NAME
-        ,cast(MODIFIEDDATE as date) as MODIFIEDDATE
-
+        cast(countryregioncode as varchar) as pk_countryregioncode
+        , cast(name as varchar) as country_name
     from source
 )
 select * from countryregion

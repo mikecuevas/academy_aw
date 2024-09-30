@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: int_sales
+    description: "Tabela intermediária de vendas contendo detalhes sobre as ordens de venda, produtos, clientes, e razões."
+    columns:
+      - name: sales_sk
+        description: "Surrogate key para o evento de venda"
+        tests:
+          - not_null
+          - unique
+      - name: customer_sk
+        description: "Surrogate key para o cliente"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_clients')
+              field: customer_sk
+      - name: salesperson_sk
+        description: "Surrogate key para o vendedor"
+        tests:
+          - relationships:
+              to: ref('dim_salesperson')
+              field: salesperson_sk
+      - name: creditcard_sk
+        description: "Surrogate key para o cartão de crédito utilizado"
+        tests:
+          - relationships:
+              to: ref('dim_creditcard')
+              field: creditcard_sk
+      - name: product_sk
+        description: "Surrogate key para o produto vendido"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_product')
+              field: product_sk
+      - name: salesreason_sk
+        description: "Surrogate key para a razão de venda"
+        tests:
+          - relationships:
+              to: ref('dim_salesreason')
+              field: salesreason_sk
+      - name: orderdate
+        description: "Data do pedido"
+        tests:
+          - not_null

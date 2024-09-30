@@ -1,28 +1,21 @@
 with
     salesreason as (
         select
-            pk_salesreasonid,
-            salesreason_name,
-            reasontype,
-            modifieddate
+            pk_salesreasonid
+            , salesreason_name
+            , reasontype
 
         from {{ ref("stg_adventurework_erp__SalesReason") }}
     ),
 
     joined as (
         select
-            pk_salesreasonid,
-            salesreason_name,
-            reasontype,
-            modifieddate
+            {{ dbt_utils.generate_surrogate_key(['pk_salesreasonid']) }} as salesreason_sk
+            , pk_salesreasonid
+            , salesreason_name
+            , reasontype
 
         from salesreason
     )
 
-select
-    pk_salesreasonid as salesreason_id,
-    salesreason_name,
-    reasontype,
-    modifieddate
-
-from joined
+select * from joined

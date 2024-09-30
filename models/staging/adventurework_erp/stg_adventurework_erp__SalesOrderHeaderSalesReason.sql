@@ -1,13 +1,17 @@
 with source as (
-      select * from {{ source('adventurework_erp', 'SalesOrderHeaderSalesReason') }}
+
+    select * from {{ source('adventurework_erp', 'SalesOrderHeaderSalesReason') }}
+
 ),
-SalesOrderHeaderSalesReason as (
+
+salesorderheadersalesreason as (
+
     select
-        cast(SALESORDERID as int) as FK_SALESORDERID
-        ,cast(SALESREASONID as int) as FK_SALESREASONID
-        ,cast(MODIFIEDDATE as date) as MODIFIEDDATE
+        cast(salesorderid as int) as fk_salesorderid
+      , cast(salesreasonid as int) as fk_salesreasonid
 
     from source
+
 )
-select * from SalesOrderHeaderSalesReason
-  
+
+select * from salesorderheadersalesreason

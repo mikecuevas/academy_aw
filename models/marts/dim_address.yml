@@ -2,26 +2,20 @@ version: 2
 
 models:
   - name: dim_address
-    description: "Dimensão de endereços, incluindo cidade, estado e país."
+    description: "Dimensão de endereços que contém informações sobre localização, províncias e regiões do cliente."
     columns:
-      - name: address_id
-        description: "Identificador único do endereço."
+      - name: address_sk
+        description: "Surrogate key para o endereço"
         tests:
+          - not_null
           - unique
-          - not_null
-      - name: addressline1
-        description: "Endereço linha 1."
-        tests:
-          - not_null
-      - name: city
-        description: "Cidade do endereço."
+      - name: fk_countryregioncode
+        description: "Chave estrangeira para a região/country"
         tests:
           - not_null
       - name: stateprovincecode
-        description: "Código da província ou estado."
-        tests:
-          - not_null
-      - name: countryregion_code
-        description: "Código do país ou região."
-        tests:
-          - not_null
+        description: "Código da província/estado"
+      - name: postalcode
+        description: "Código postal do endereço"
+      - name: country_name
+        description: "Nome do país/região"

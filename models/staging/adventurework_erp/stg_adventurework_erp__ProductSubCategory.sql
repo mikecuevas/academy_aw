@@ -8,17 +8,12 @@ source as (
 
 ),
 
-productsubcategory as (
-
-    select
-        cast(productsubcategoryid as int) as pk_productsubcategoryid,
-        cast(productcategoryid as int) as fk_productcategoryid,
-        cast(name as varchar) as productsubcategory_name,
-        cast(rowguid as varchar) as rowguid,
-        cast(modifieddate as date) as modifieddate
-
-    from source
-
-)
+    productsubcategory as (
+        select
+          cast(productsubcategoryid as int) as pk_productsubcategoryid
+          , cast(name as varchar) as productsub_name
+          , cast(productcategoryid as int) as fk_productcategoryid
+        from source
+    )
 
 select * from productsubcategory

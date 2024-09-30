@@ -2,26 +2,47 @@ version: 2
 
 models:
   - name: dim_salesperson
-    description: "Dimensão de vendedores com informações pessoais e profissionais."
+    description: "Dimensão de vendedores contendo dados de vendas, comissões e informações pessoais."
     columns:
-      - name: salesperson_id
-        description: "Identificador único do vendedor."
+      - name: salesperson_sk
+        description: "Surrogate key para o vendedor"
         tests:
+          - not_null
           - unique
-          - not_null
-      - name: firstname
-        description: "Primeiro nome do vendedor."
+      - name: pk_businessentityid
+        description: "Chave primária original para a entidade de negócios do vendedor"
         tests:
           - not_null
-      - name: lastname
-        description: "Sobrenome do vendedor."
-        tests:
-          - not_null
-      - name: hiredate
-        description: "Data de contratação do vendedor."
+          - unique
+      - name: fk_territoryid
+        description: "Chave estrangeira para o território"
       - name: salesquota
-        description: "Cota de vendas do vendedor."
+        description: "Meta de vendas"
+      - name: bonus
+        description: "Bônus recebido"
+      - name: commissionpct
+        description: "Porcentagem de comissão"
       - name: salesytd
-        description: "Vendas do ano até a data."
+        description: "Vendas até o momento"
       - name: saleslastyear
-        description: "Vendas do ano anterior."
+        description: "Vendas do ano passado"
+      - name: jobtitle
+        description: "Cargo do vendedor"
+      - name: birthdate
+        description: "Data de nascimento"
+      - name: maritalstatus
+        description: "Estado civil"
+      - name: gender
+        description: "Gênero"
+      - name: hiredate
+        description: "Data de contratação"
+      - name: firstname
+        description: "Primeiro nome do vendedor"
+      - name: middlename
+        description: "Nome do meio do vendedor"
+      - name: lastname
+        description: "Último nome do vendedor"
+      - name: fk_addressid
+        description: "Chave estrangeira para o endereço do vendedor"
+        tests:
+          - not_null
